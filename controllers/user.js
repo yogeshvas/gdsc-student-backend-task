@@ -47,12 +47,11 @@ export const login = async (req, res) => {
   });
 };
 
-export const userTest = async (req, res) => {
+export const getData = async (req, res) => {
   try {
-    res.status(200).json({
-      message: "Hello from user route",
-    });
+    const response = await User.find();
+    return res.status(200).json(response);
   } catch (error) {
-    console.log("error", error);
+    console.log(error);
   }
 };

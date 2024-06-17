@@ -1,26 +1,22 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-// User Schema
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
+    },
+    email: {
+      type: String,
       required: true,
+      unique: true,
     },
     phoneNo: {
-      type: String,
-      required: true,
+      type: Number,
+      unique: true,
     },
-    password: {
-      type: String,
-      required: true,
+    age: {
+      type: Number,
     },
-    services: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Service",
-      },
-    ],
   },
   { timestamps: true }
 );
